@@ -170,6 +170,9 @@ public class GroupStageController implements Initializable {
         groupStageUtils.randomize(this.table4root);
     }
 
+    /**
+     * Method for when the save button is clicked
+     */
     @FXML
     void saveBtnClicked() {
         try {
@@ -195,6 +198,9 @@ public class GroupStageController implements Initializable {
         commitGroupsBtn.setDisable(true);
     }
 
+    /**
+     * Method for when the 'Finish group stage' button is clicked
+     */
     @FXML
     void finishGroupstageBtnClicked(){
         try {
@@ -205,7 +211,9 @@ public class GroupStageController implements Initializable {
         }
     }
 
-
+    /**
+     * Method for when the 'teams' button is clicked
+     */
     @FXML
     void teamsBtnClicked() {
         try {
@@ -221,6 +229,9 @@ public class GroupStageController implements Initializable {
         }
     }
 
+    /**
+     * Initialize group tables
+     */
     private void initializeGroupTables() {
         GroupStageUtils.initWithTeamsFromDatabase(this.groupDAO, "Group A", Tournament.getSelectedTournamentID(), this.table1root);
         GroupStageUtils.initWithTeamsFromDatabase(this.groupDAO, "Group B", Tournament.getSelectedTournamentID(), this.table2root);
@@ -228,6 +239,9 @@ public class GroupStageController implements Initializable {
         GroupStageUtils.initWithTeamsFromDatabase(this.groupDAO, "Group D", Tournament.getSelectedTournamentID(), this.table4root);
     }
 
+    /**
+     * Set root in tree tables
+     */
     private void setRootInTreeTables() {
         setRootInTableView(this.tableView1, this.table1root);
         setRootInTableView(this.tableView2, this.table2root);
@@ -235,12 +249,18 @@ public class GroupStageController implements Initializable {
         setRootInTableView(this.tableView4, this.table4root);
     }
 
+    /**
+     * Set root in table view
+     */
     private void setRootInTableView(TreeTableView<Team> tableView, TreeItem<Team> root) {
         tableView.setRoot(root);
         tableView.setShowRoot(false);
     }
 
-    //When start button is clicked, don't allow editing teams.
+    /**
+     * Set not editable team columns
+     * When start button is clicked, don't allow editing teams.
+     */
     private void setNotEditableTeamCols() {
         this.teamColTable1.setEditable(false);
         this.teamColTable2.setEditable(false);
@@ -248,7 +268,10 @@ public class GroupStageController implements Initializable {
         this.teamColTable4.setEditable(false);
     }
 
-    //Allow editing points column when start is clicked.
+    /**
+     * Set points columns as editable
+     * Allow editing points column when start is clicked.
+     */
     private void setPointsColumnsAsEditable() {
         this.pointsColTable1.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn());
         this.pointsColTable2.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn());
@@ -256,13 +279,20 @@ public class GroupStageController implements Initializable {
         this.pointsColTable4.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn());
     }
 
-    //Get teams from the team register, add them to an observable list which is used in the combo boxes.
+    /**
+     * Add team names to teams list
+     * Get teams from the team register, add them to an observable list which is used in the combo boxes.
+     */
     private void addTeamNamesToTeamsList() {
         for (Team team : this.teamRegister.getTeams()) {
             this.teamNames.add(team.getTeamName());
         }
     }
 
+    /**
+     * Add combobox to team column
+     * @param teamNames the team names
+     */
     private void addComboboxToTeamCol(ObservableList<String> teamNames) {
         this.teamColTable1.setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(teamNames));
         this.teamColTable2.setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(teamNames));
@@ -270,6 +300,9 @@ public class GroupStageController implements Initializable {
         this.teamColTable4.setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(teamNames));
     }
 
+    /**
+     * Handle editing team columns
+     */
     private void handleEditingTeamCols() {
         chooseAndSetTeam(this.teamColTable1, this.tableView1);
         chooseAndSetTeam(this.teamColTable2, this.tableView2);
@@ -277,6 +310,9 @@ public class GroupStageController implements Initializable {
         chooseAndSetTeam(this.teamColTable4, this.tableView4);
     }
 
+    /**
+     * Choose and set team
+     */
     private void chooseAndSetTeam(TreeTableColumn<Team, String> teamCol, TreeTableView<Team> tableView) {
         //Get column that is being edited
         teamCol.setOnEditCommit(event -> {
@@ -287,6 +323,9 @@ public class GroupStageController implements Initializable {
         });
     }
 
+    /**
+     * Initialize team columns
+     */
     private void initializeTeamColumns() {
         this.teamColTable1.setCellValueFactory((TreeTableColumn.CellDataFeatures<Team, String> param) -> param.getValue().getValue().teamNameProperty());
         this.teamColTable2.setCellValueFactory((TreeTableColumn.CellDataFeatures<Team, String> param) -> param.getValue().getValue().teamNameProperty());
@@ -294,6 +333,9 @@ public class GroupStageController implements Initializable {
         this.teamColTable4.setCellValueFactory((TreeTableColumn.CellDataFeatures<Team, String> param) -> param.getValue().getValue().teamNameProperty());
     }
 
+    /**
+     * Initialize points columns
+     */
     private void initializePointsColumns() {
         this.pointsColTable1.setCellValueFactory((TreeTableColumn.CellDataFeatures<Team, String> param) -> param.getValue().getValue().pointsProperty());
         this.pointsColTable2.setCellValueFactory((TreeTableColumn.CellDataFeatures<Team, String> param) -> param.getValue().getValue().pointsProperty());

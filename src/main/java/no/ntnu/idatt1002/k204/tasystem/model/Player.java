@@ -1,5 +1,8 @@
 package no.ntnu.idatt1002.k204.tasystem.model;
 
+/**
+ * Class that defines a player.
+ */
 public class Player {
     private String gamertag;
     private String rank;

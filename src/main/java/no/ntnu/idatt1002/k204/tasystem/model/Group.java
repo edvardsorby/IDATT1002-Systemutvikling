@@ -21,6 +21,11 @@ public class Group {
         validateName(groupName);;
     }
 
+    /**
+     * Validates a team name
+     *
+     * @param name the team
+     */
     private void validateName(String name){
         if (name == null || name.equals("")) {
             throw new IllegalArgumentException("Please provide a group name!");

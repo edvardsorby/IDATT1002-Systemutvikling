@@ -73,6 +73,10 @@ public class AddEligibleTeamsController implements Initializable {
         updateTable();
             handleTeamSelection();
     }
+
+    /**
+     * Handles team selection
+     */
     private void handleTeamSelection() {
         try{
         teamsTableView.setRowFactory(table -> {
@@ -110,6 +114,10 @@ public class AddEligibleTeamsController implements Initializable {
         selectedTournament = tournament;
 
     }
+
+    /**
+     * Handles back button clicks
+     */
     @FXML
     void backBtnClicked() {
         try {
@@ -124,6 +132,10 @@ public class AddEligibleTeamsController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Updates the table
+     */
     private void updateTable(){
         this.teamObservableList = FXCollections.observableArrayList(eligibleTeams);
         this.teamsTableView.setItems(this.teamObservableList);

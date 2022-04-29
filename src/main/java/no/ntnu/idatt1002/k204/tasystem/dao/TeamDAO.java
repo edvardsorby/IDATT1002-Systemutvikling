@@ -62,6 +62,12 @@ public class TeamDAO {
         }
     }
 
+    /**
+     * Checks if a team exists in the database
+     *
+     * @param name the name of the team
+     * @return true or false
+     */
     private boolean teamExists(String name) {
         String sql;
 

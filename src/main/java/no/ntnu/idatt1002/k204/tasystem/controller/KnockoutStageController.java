@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for handling the knockout stage
+ */
 public class KnockoutStageController implements Initializable {
 
     @FXML
