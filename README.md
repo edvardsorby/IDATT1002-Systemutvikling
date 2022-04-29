@@ -15,3 +15,10 @@ If it is not selected or there are no configurations added, navigate to `src/mai
 right-click the file `Application` and select `Run 'Application.main()'`.
 
 ![Run](./run.png)
+
+## Logging in
+To access the system, a username and password is required.
+For demonstration purposes, use the below information:
+
+ - Username: `admin`
+ - Password: `1234`
