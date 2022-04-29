@@ -26,6 +26,9 @@ import java.util.ResourceBundle;
 import static no.ntnu.idatt1002.k204.tasystem.dialogs.Dialogs.showAlertDialog;
 import static no.ntnu.idatt1002.k204.tasystem.dialogs.Dialogs.showInformationDialog;
 
+/**
+ * Controller for adding an eligible team to a tournament
+ */
 public class AddEligibleTeamsController implements Initializable {
 
     @FXML

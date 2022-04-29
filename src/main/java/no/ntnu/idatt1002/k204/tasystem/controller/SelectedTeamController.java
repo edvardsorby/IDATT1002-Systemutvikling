@@ -17,7 +17,9 @@ import no.ntnu.idatt1002.k204.tasystem.model.Team;
 import java.io.IOException;
 import java.net.URL;
 
-
+/**
+ * Controller for handling the team page
+ */
 public class SelectedTeamController {
 
 
