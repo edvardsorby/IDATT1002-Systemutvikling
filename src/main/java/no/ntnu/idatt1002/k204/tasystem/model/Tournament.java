@@ -6,6 +6,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
+/**
+ * The tournament class
+ */
 public class Tournament {
     private static int countTournaments = 1;//keep track of count tournaments. Also used to update an id for a tournament.
     private static int selectedTournamentID;//keep track on the id of the selected tournament
